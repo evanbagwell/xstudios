@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-oznrfk=(2xx3%%w!(b&9fi*6a_wj=opa!8-bn(kj7va%cepnks
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['161.35.9.16', 'localhost', 'whyiwanttoworkatxstudios.com', 'www.whyiwanttoworkatxstudios.com']
 
 
 # Application definition
@@ -53,7 +53,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:8080',
+    'http://localhost:8080', 'http://161.35.9.16'
 ]
 
 ROOT_URLCONF = 'why_i_want_to_work_at_xstudios.urls'
