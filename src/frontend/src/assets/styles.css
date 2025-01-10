@@ -1,8 +1,8 @@
 /* Force all text to display fully */
-p, div, span {
+/* p, div, span {
     overflow: visible !important;
     text-overflow: clip !important;
     white-space: normal !important;
     word-break: break-word !important;
   }
-  
+   */

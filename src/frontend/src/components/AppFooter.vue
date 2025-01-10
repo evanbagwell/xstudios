@@ -1,5 +1,5 @@
 <template>
-    <footer class="fixed bottom-0 left-0 w-full bg-gray-900 text-gray-400 py-4 shadow-inner">
+    <footer class="bg-gray-900 text-gray-400 py-4 shadow-inner">
       <div class="container mx-auto text-center">
         <p>&copy; {{ currentYear }} Evan Bagwell. All rights reserved.</p>
         <p>Designed and developed by Evan Bagwell.</p>
