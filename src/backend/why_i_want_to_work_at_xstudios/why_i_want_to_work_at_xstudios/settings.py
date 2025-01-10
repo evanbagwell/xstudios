@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -49,11 +50,16 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:8080', 'http://161.35.9.16'
+]
+
+CORS_ALLOW_ALL_ORIGINS = False  # Safer than True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8081",  # Vue frontend
+    "http://127.0.0.1:8081", # Optional, if you use 127.0.0.1
 ]
 
 ROOT_URLCONF = 'why_i_want_to_work_at_xstudios.urls'

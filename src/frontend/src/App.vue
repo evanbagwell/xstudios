@@ -12,12 +12,16 @@ export default {
     }
   },
   mounted() {
-    fetch('https://whyiwanttoworkatxstudios.com/api/number/')
-      .then(response => response.json())
-      .then(data => {
-        this.number = data.value;
-      })
-      .catch(error => console.error(error));
-  }
+  const baseUrl = window.location.hostname === 'localhost'
+    ? 'http://localhost:8080'
+    : 'https://whyiwanttoworkatxstudios.com';
+
+  fetch(`${baseUrl}/api/number/`)
+    .then(response => response.json())
+    .then(data => {
+      this.number = data.value;
+    })
+    .catch(error => console.error(error));
+}
 }
 </script>
