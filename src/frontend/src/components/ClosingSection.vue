@@ -5,7 +5,7 @@
         I admire XStudios' groundbreaking role in AR/VR gaming and would be honored to contribute to its mission. 
         If you invite me for an interview, you won't be disappointed.
       </p>
-      <img src="/Evan_Bagwell_Signature.png" alt="Evan's Signature" class="mx-auto mt-4">
+      <img src="/Evan_Bagwell_Signature.jpeg" alt="Evan's Signature" class="mx-auto mt-4">
     </div>
   </template>
   
