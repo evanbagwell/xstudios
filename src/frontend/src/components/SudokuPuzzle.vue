@@ -118,13 +118,21 @@ export default {
   color: #00ff00;
 }
 
-/* Bold borders for 3x3 grid separation */
 .border-top-bold {
-  border-top: 3px solid white;
+  border-top: 3px solid #ffffff !important;
 }
 
 .border-left-bold {
-  border-left: 3px solid white;
+  border-left: 3px solid #ffffff !important;
+}
+
+/* Ensure the grid has complete borders on the right and bottom edges */
+.border-right-bold {
+  border-right: 3px solid #ffffff !important;
+}
+
+.border-bottom-bold {
+  border-bottom: 3px solid #ffffff !important;
 }
 
 /* Adjust the right padding only */
@@ -134,5 +142,20 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.cell {
+  width: 100%;                 /* Full width of the grid column */
+  aspect-ratio: 1 / 1;         /* Forces the height to match the width */
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  border: 1px solid #555;
+  box-sizing: border-box;      /* Includes border in width/height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
 }
 </style>
