@@ -2,6 +2,18 @@
   <div class="mt-8 p-4 pr-8 bg-gray-800 text-white rounded-lg shadow-md flex flex-col items-center">
     <h2 class="text-2xl font-semibold mb-6 text-center">🧩 Play Sudoku!</h2>
 
+    <div class="mb-4 flex space-x-4">
+  <button @click="fetchPuzzle('easy')" class="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded">
+    Easy
+  </button>
+  <button @click="fetchPuzzle('medium')" class="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded">
+    Medium
+  </button>
+  <button @click="fetchPuzzle('hard')" class="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded">
+    Hard
+  </button>
+</div>
+
     <div class="grid grid-cols-9 gap-0 justify-center">
       <input
         v-for="(cell, index) in puzzle"
@@ -41,21 +53,22 @@ export default {
     this.fetchPuzzle();
   },
   methods: {
-    fetchPuzzle() {
-      const baseUrl = window.location.hostname === 'localhost'
-        ? 'http://localhost:8080'
-        : 'https://whyiwanttoworkatxstudios.com';
+    fetchPuzzle(difficulty = 'medium') {
+  const baseUrl = window.location.hostname === 'localhost'
+    ? 'http://localhost:8080'
+    : 'https://whyiwanttoworkatxstudios.com';
 
-      fetch(`${baseUrl}/api/sudoku/generate/`)
-        .then(response => response.json())
-        .then(data => {
-          this.puzzle = data.puzzle.flat();
-          this.originalPuzzle = [...this.puzzle];
-        })
-        .catch(error => {
-          console.error("Failed to fetch puzzle:", error);
-        });
-    },
+  fetch(`${baseUrl}/api/sudoku/generate/?difficulty=${difficulty}`)
+    .then(response => response.json())
+    .then(data => {
+      this.puzzle = data.puzzle.flat();
+      this.originalPuzzle = [...this.puzzle];
+      this.result = null;  // Reset result when a new puzzle is loaded
+    })
+    .catch(error => {
+      console.error("Failed to fetch puzzle:", error);
+    });
+},
     updateCell(index, value) {
       if (this.originalPuzzle[index] === 0) {
         this.puzzle.splice(index, 1, parseInt(value) || 0);

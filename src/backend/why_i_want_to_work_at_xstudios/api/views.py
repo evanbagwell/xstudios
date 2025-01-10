@@ -48,8 +48,23 @@ def remove_cells(board, num_holes=30):
 
 # API to generate Sudoku puzzle
 def generate_sudoku(request):
+    # Get the difficulty from the request (default to 'medium')
+    difficulty = request.GET.get('difficulty', 'medium')
+
+    # Map difficulty levels to the number of cells to remove
+    difficulty_levels = {
+        'easy': 30,    # Fewer empty cells → easier
+        'medium': 45,  # Moderate number of empty cells
+        'hard': 60     # More empty cells → harder
+    }
+
+    # Get the number of holes based on difficulty
+    num_holes = difficulty_levels.get(difficulty, 45)
+
+    # Generate a full Sudoku board and remove cells
     full_board = create_full_board()
-    puzzle = remove_cells(full_board, 30)
+    puzzle = remove_cells(full_board, num_holes)
+
     return JsonResponse({'puzzle': puzzle})
 
 # Helper to validate rows, columns, and 3x3 grids
