@@ -15,7 +15,7 @@
     </a>
 
     <!-- Resume -->
-    <a href="/Evan_Bagwell_Resume_2024.pdf" target="_blank" 
+    <a href="/Evan_Bagwell_Resume_2025.pdf" target="_blank" 
        class="tooltip text-gray-400 hover:text-white text-2xl">
       <i class="fas fa-file-alt"></i>
       <span class="tooltip-text">View my resume</span>
